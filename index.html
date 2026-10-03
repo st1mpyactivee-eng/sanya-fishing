@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17231e">
+  <meta name="description" content="Тихий берег: немного сосредоточенной работы, пять минут отдыха и рыбалка без спешки.">
+  <title>Работать или рыбачить? — Тихий берег</title>
+  <link rel="icon" href="assets/images/ui/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/images/background/lake-background.webp" as="image">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/scene.css">
+  <link rel="stylesheet" href="css/ui.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <!-- Обычные defer-скрипты позволяют открыть index.html даже через file://. -->
+  <script defer src="js/config.js"></script>
+  <script defer src="js/character-states.js"></script>
+  <script defer src="js/settings-manager.js"></script>
+  <script defer src="js/state-manager.js"></script>
+  <script defer src="js/timer-manager.js"></script>
+  <script defer src="js/audio-manager.js"></script>
+  <script defer src="js/fishing-manager.js"></script>
+  <script defer src="js/fishing-stories.js"></script>
+  <script defer src="js/character-manager.js"></script>
+  <script defer src="js/ui-manager.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C11 3 4 6 5 13c1 7 12 7 15-9Z"/><path d="m4 21 11-11M8 16v-5m4 1h5"/></symbol>
+    <symbol id="i-work" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V4h6v3M4 12h16m-10 0v3h4v-3"/></symbol>
+    <symbol id="i-fish" viewBox="0 0 24 24"><path d="M18 12c-5-8-12-5-15 0 3 5 10 8 15 0Zm0 0 4-4v8l-4-4Z"/><path d="m9 6 3-2v4m-3 10 3 2v-4"/><circle cx="7" cy="11" r=".7"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="m10 3-.6 2.2-2 .9-2.1-.6-2 3.4L5 10.5v3l-1.7 1.6 2 3.4 2.1-.6 2 .9.6 2.2h4l.6-2.2 2-.9 2.1.6 2-3.4-1.7-1.6v-3l1.7-1.6-2-3.4-2.1.6-2-.9L14 3Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.2"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13M9 9l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2.5"/><ellipse cx="17" cy="16" rx="3" ry="2.5"/></symbol>
+    <symbol id="i-muted" viewBox="0 0 24 24"><path d="M9 18V5l11-2v9M9 9l11-2m-5 9 6 6m0-6-6 6"/><ellipse cx="6" cy="18" rx="3" ry="2.5"/></symbol>
+    <symbol id="i-fullscreen" viewBox="0 0 24 24"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></symbol>
+    <symbol id="i-exit-fullscreen" viewBox="0 0 24 24"><path d="M4 9h5V4m6 0v5h5M9 20v-5H4m11 5v-5h5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8Z"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 9a8 8 0 1 1 0 6M4 3v6h6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+  </svg>
+
+  <main class="scene" id="scene" data-mode="menu" aria-label="Тихий берег лесного озера">
+    <div class="scene-layer background" aria-hidden="true"><img id="lake-background" src="assets/images/background/lake-background.webp" alt="" fetchpriority="high"></div>
+    <div class="scene-layer distant-landscape" aria-hidden="true"><div class="haze"></div><img class="clouds optional-image" src="assets/images/background/clouds.webp" alt=""></div>
+    <div class="scene-layer water" aria-hidden="true"><img class="optional-image" src="assets/images/background/water-overlay.webp" alt=""><div class="water-shimmer"></div></div>
+    <div class="scene-layer vegetation-back" aria-hidden="true"><img class="optional-image" src="assets/images/background/vegetation-back.webp" alt=""></div>
+    <div class="scene-layer props" aria-hidden="true">
+      <img class="prop wood-pile optional-image" src="assets/images/props/wood-pile.webp" alt="">
+      <img class="prop logs optional-image" src="assets/images/props/logs.webp" alt="">
+      <img class="prop stump optional-image" src="assets/images/props/stump.webp" alt="">
+      <img class="prop axe optional-image" src="assets/images/props/axe.webp" alt="">
+      <img class="prop fishing-rod optional-image" src="assets/images/props/fishing-rod.webp" alt="">
+    </div>
+    <div class="character" id="character">
+      <img class="character-frame character-layer-a" alt="" decoding="async">
+      <img class="character-frame character-layer-b" alt="" decoding="async">
+      <span class="character-fallback" hidden>Персонаж у озера</span>
+      <button class="character-hit" id="character-interact" data-action="character-interact" aria-label="Саня: закинуть удочку" aria-haspopup="dialog" aria-controls="character-dialog" aria-expanded="false" hidden>
+        <span class="character-hint" id="character-hint">Закинуть удочку · нажмите на Саню</span>
+      </button>
+    </div>
+    <div class="scene-layer vegetation-front" aria-hidden="true"><img class="optional-image" src="assets/images/background/vegetation-front.webp" alt=""></div>
+    <div class="scene-layer effects" aria-hidden="true">
+      <div class="light-wash"></div><div class="vignette"></div>
+      <div class="fishing-water" id="fishing-water" hidden><span class="ripple"></span><span class="ripple second"></span><span class="float"><img class="optional-image" src="assets/images/props/float.webp" alt=""></span><span class="splash"></span></div>
+    </div>
+
+    <div class="scene-ui" id="scene-ui">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark"><svg><use href="#i-leaf"/></svg></span><div><span class="brand-name">Тихий берег</span><span class="brand-caption">В своём ритме</span></div></div>
+        <div class="timer glass" id="timer" hidden role="timer" aria-label="Оставшееся время">
+          <span class="timer-kind" id="timer-kind">Работа</span><span class="timer-value" id="timer-value">25:00</span><span class="timer-note" id="timer-note">Время для одной задачи</span>
+          <div class="timer-track"><span id="timer-progress"></span></div>
+        </div>
+        <nav class="toolbar glass" aria-label="Управление приложением">
+          <button class="icon-button" data-action="music" id="music-button" aria-label="Выключить музыку" aria-pressed="false" title="Музыка"><svg><use href="#i-music"/></svg></button>
+          <span class="toolbar-divider"></span>
+          <button class="icon-button" data-action="settings" aria-label="Настройки" title="Настройки"><svg><use href="#i-settings"/></svg></button>
+          <button class="icon-button" data-action="about" aria-label="О проекте" title="О проекте"><svg><use href="#i-info"/></svg></button>
+          <button class="icon-button" data-action="fullscreen" id="fullscreen-button" aria-label="Полноэкранный режим" aria-pressed="false" title="Полноэкранный режим"><svg><use href="#i-fullscreen"/></svg></button>
+        </nav>
+      </header>
+
+      <section class="welcome panel glass" id="menu-panel" aria-labelledby="menu-title">
+        <div class="eyebrow"><span class="status-dot"></span>Побудьте здесь. Побудьте собой.</div>
+        <h1 id="menu-title">Работать<br>или рыбачить?</h1>
+        <p class="panel-description">Оставьте суету на другом берегу.<br>Для всего остального есть время.</p>
+        <div class="choices">
+          <button class="choice-button" data-action="work"><svg><use href="#i-work"/></svg><span>Работать</span><svg class="choice-arrow"><use href="#i-arrow"/></svg></button>
+          <button class="choice-button" data-action="fish"><svg><use href="#i-fish"/></svg><span>Рыбачить</span><svg class="choice-arrow"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="choice-captions"><span>Сосредоточиться на важном</span><span>Просто отпустить мысли</span></div>
+        <div class="panel-footnote"><span class="small-line"></span>Никаких очков. Никакой спешки.</div>
+      </section>
+
+      <section class="setup panel glass" id="setup-panel" hidden aria-labelledby="setup-title">
+        <button class="text-button back-button" data-action="menu"><svg><use href="#i-back"/></svg>Назад</button>
+        <div class="eyebrow">Одна задача за раз</div>
+        <h2 id="setup-title">Сколько будем<br>работать?</h2>
+        <p class="panel-description">Выберите свой ритм.<br>После работы — пять минут на природе.</p>
+        <div class="duration-options" role="group" aria-label="Продолжительность работы">
+          <button class="duration-button" data-duration="15" aria-pressed="false"><span>15</span>минут</button>
+          <button class="duration-button" data-duration="25" aria-pressed="false"><span>25</span>минут</button>
+          <button class="duration-button" data-duration="45" aria-pressed="false"><span>45</span>минут</button>
+          <button class="duration-button" data-duration="60" aria-pressed="false"><span>60</span>минут</button>
+        </div>
+        <button class="primary-button wide-button" data-action="start-work" id="start-work" disabled>Начать работу<svg><use href="#i-arrow"/></svg></button>
+      </section>
+
+      <section class="rest-complete panel glass" id="rest-panel" hidden aria-labelledby="rest-title">
+        <div class="eyebrow"><svg><use href="#i-sun"/></svg>Можно двигаться дальше</div>
+        <h2 id="rest-title">Отдых завершён.<br>Что дальше?</h2>
+        <p class="panel-description">Побудьте с этим спокойствием ещё немного.</p>
+        <button class="primary-button wide-button" data-action="work">Снова работать<svg><use href="#i-work"/></svg></button>
+        <button class="primary-button wide-button" data-action="fish">Порыбачить<svg><use href="#i-fish"/></svg></button>
+        <button class="text-button wide-button" data-action="menu">В меню</button>
+      </section>
+
+      <section class="mode-controls" id="mode-controls" hidden aria-label="Управление текущим режимом">
+        <div class="mode-message glass" id="mode-message"><span class="status-dot"></span><div><span id="mode-title"></span><p id="mode-description"></p></div></div>
+        <div class="control-buttons glass">
+          <button class="primary-button" data-action="pause" id="pause-button" hidden><svg><use href="#i-pause"/></svg>Пауза</button>
+          <button class="primary-button" data-action="resume" id="resume-button" hidden><svg><use href="#i-play"/></svg>Продолжить</button>
+          <button class="text-button" data-action="reset" id="reset-button" hidden><svg><use href="#i-reset"/></svg>Сбросить</button>
+          <span class="control-divider" id="control-divider" hidden></span>
+          <button class="text-button" data-action="menu"><svg><use href="#i-back"/></svg>В меню</button>
+        </div>
+      </section>
+
+      <section class="character-dialog glass" id="character-dialog" role="dialog" aria-labelledby="character-dialog-title" aria-describedby="character-dialog-description" hidden>
+        <div class="character-dialog-heading"><span class="eyebrow">Саня</span><button class="icon-button" data-action="close-character-dialog" aria-label="Закрыть диалог с Саней"><svg><use href="#i-close"/></svg></button></div>
+        <h2 id="character-dialog-title" aria-live="polite">Ну что, закинем?</h2>
+        <p id="character-dialog-description">У озера времени много. Можно просто посидеть.</p>
+        <button class="primary-button wide-button" id="fishing-button" data-action="cast" hidden>Закинуть удочку<svg><use href="#i-fish"/></svg></button>
+      </section>
+
+      <footer class="scene-footer"><span id="footer-text">Место, где можно никуда не спешить</span><span class="location-note"><span class="status-dot"></span>Лесное озеро · Тихий берег</span></footer>
+    </div>
+    <div class="toast glass" id="toast" role="status" aria-live="polite" hidden></div>
+    <div class="loader" id="loader" role="status"><span class="loader-leaf"><svg><use href="#i-leaf"/></svg></span><p>Находим тихий берег…</p></div>
+  </main>
+
+  <dialog class="modal glass" id="settings-modal" aria-labelledby="settings-title">
+    <div class="modal-heading"><div><span class="eyebrow">Ваше пространство</span><h2 id="settings-title">Настройки</h2></div><button class="icon-button" data-action="close-modal" aria-label="Закрыть настройки"><svg><use href="#i-close"/></svg></button></div>
+    <div class="setting-row"><div><label for="music-toggle">Музыка</label><p>Тихое сопровождение вашего дня</p></div><input class="switch" type="checkbox" id="music-toggle" role="switch"></div>
+    <div class="volume-row"><label for="volume-slider">Громкость</label><output id="volume-output" for="volume-slider">65%</output><input id="volume-slider" type="range" min="0" max="100" step="1" value="65" aria-label="Громкость музыки"></div>
+    <div class="setting-row"><div><span>На весь экран</span><p>Чуть ближе к природе</p></div><button class="icon-button" data-action="fullscreen" id="settings-fullscreen" aria-label="Полноэкранный режим" aria-pressed="false"><svg><use href="#i-fullscreen"/></svg></button></div>
+    <div class="modal-bottom"><button class="text-button" data-action="reset-settings">Сброс настроек</button><button class="primary-button" data-action="close-modal">Готово</button></div>
+  </dialog>
+
+  <dialog class="modal glass" id="about-modal" aria-labelledby="about-title">
+    <div class="modal-heading"><div><span class="eyebrow">Тихий берег</span><h2 id="about-title">О проекте</h2></div><button class="icon-button" data-action="close-modal" aria-label="Закрыть информацию о проекте"><svg><use href="#i-close"/></svg></button></div>
+    <!-- Текст о проекте можно заменить здесь. -->
+    <div class="about-copy" id="about-copy"><p>Небольшое пространство для работы и отдыха.</p><p>Поработайте в своём ритме или просто посидите с удочкой у озера.</p></div>
+    <p class="about-note">Без целей и рекордов. С вниманием к себе.</p>
+    <button class="primary-button wide-button" data-action="close-modal">Вернуться к озеру</button>
+  </dialog>
+
+  <dialog class="modal glass confirm-modal" id="confirm-modal" aria-labelledby="confirm-title">
+    <div class="eyebrow">Можно начать заново</div><h2 id="confirm-title">Завершить текущий<br>рабочий период?</h2><p class="panel-description">Вы сможете выбрать новый интервал.</p>
+    <div class="modal-bottom"><button class="text-button" data-action="cancel-reset" autofocus>Продолжить работу</button><button class="primary-button" data-action="confirm-reset">Завершить</button></div>
+  </dialog>
+  <noscript><div class="noscript">Чтобы работать и рыбачить, включите JavaScript в браузере.</div></noscript>
+</body>
+</html>

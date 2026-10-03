@@ -1,0 +1,61 @@
+.scene-layer { position: absolute; inset: 0; pointer-events: none; }
+.scene-layer > img { width: 100%; height: 100%; object-fit: cover; }
+.background { z-index: 0; }
+.background img { object-position: center; }
+.distant-landscape { z-index: 1; }
+.haze { position: absolute; top: 25%; left: 40%; width: 54%; height: 20%; background: radial-gradient(ellipse, #e8eed511, transparent 65%); }
+.clouds { opacity: .24; animation: clouds-drift 100s ease-in-out infinite alternate; }
+.water { z-index: 2; opacity: .22; }
+.water-shimmer { position: absolute; left: 49%; top: 48%; width: 49%; height: 25%; background: repeating-linear-gradient(178deg, transparent 0 13px, #e1e8d50c 14px 15px, transparent 16px 27px); border-radius: 50%; mask-image: radial-gradient(ellipse, black 20%, transparent 70%); animation: water-drift 14s ease-in-out infinite alternate; }
+.vegetation-back { z-index: 3; }
+.props { z-index: 4; }
+.props .prop { position: absolute; height: auto; object-fit: contain; }
+.wood-pile { left: 22%; bottom: 15%; width: 13%; }
+.logs { left: 31%; bottom: 12%; width: 8%; }
+.stump { left: 34%; bottom: 19%; width: 7%; }
+.axe { left: 36%; bottom: 23%; width: 5%; }
+.fishing-rod { right: 25%; bottom: 18%; width: 17%; opacity: 0; transition: opacity 600ms; }
+[data-mode="fishing"] .fishing-rod { opacity: 1; }
+.character { position: absolute; z-index: 5; left: 70%; top: 87%; width: 34%; aspect-ratio: 1; pointer-events: none; }
+.character-frame { position: absolute; top: 0; left: 0; height: 100%; width: 100%; max-width: none; object-fit: contain; opacity: 0; transform: translate(-50%, -91.3086%); transform-origin: 50% 91.3086%; transition: opacity var(--character-transition) ease-in-out; }
+.character-frame[data-anchor="center"] { transform: translate(-50%, -50%); transform-origin: center; }
+.character-frame.active { opacity: 1; }
+.character-hit { position: absolute; z-index: 2; left: -21%; top: -70%; width: 38%; height: 72%; padding: 0; background: transparent; color: var(--ink); border-radius: 45% 45% 22% 22%; pointer-events: auto; }
+.character-hit:active { transform: none; }
+.character-hit:focus-visible { outline: 2px dashed #e2edc8a0; outline-offset: 4px; }
+.character:has(.character-hit:hover) .character-frame { filter: drop-shadow(0 0 9px #e6eaca24); }
+.character-hint { position: absolute; top: calc(100% + 7px); left: 50%; transform: translateX(-50%); white-space: nowrap; border: 1px solid var(--border); border-radius: 20px; background: #1b2e25bc; padding: 9px 14px; font-size: clamp(10px, .8cqw, 14px); font-weight: 400; backdrop-filter: blur(10px); box-shadow: 0 6px 20px #071c1930; pointer-events: none; }
+.character[data-scene-changing="true"] .character-hint { visibility: hidden; }
+.character-fallback { position: absolute; top: -130px; left: -100px; width: 200px; padding: 18px; border: 1px dashed #fff5; border-radius: 16px; background: #203a2d88; text-align: center; font-size: 13px; }
+[data-mode="menu"] .character { left: 71%; top: 94%; width: 64%; }
+[data-mode="work"] .character { left: 70%; top: 94%; width: 64%; }
+[data-mode="rest"] .character { left: 70%; top: 77%; width: 60%; }
+.scene[data-mode="rest"]:has(#rest-panel:not([hidden])) .character { left: 71%; top: 73%; width: 68%; }
+[data-mode="fishing"] .character { left: 70%; top: 85%; }
+[data-mode="work"] .stump, [data-mode="work"] .axe, [data-mode="fishing"] .fishing-rod { opacity: 0; }
+.vegetation-front { z-index: 6; transform-origin: bottom; animation: foliage-sway 18s ease-in-out infinite alternate; }
+.effects { z-index: 7; }
+.light-wash { position: absolute; inset: 0; background: linear-gradient(115deg, #eacc6510, transparent 55%); animation: light-breathe 25s ease-in-out infinite alternate; transition: background 2s; }
+[data-mode="rest"] .light-wash { background: linear-gradient(115deg, #dfc98224, #79969608); }
+.vignette { position: absolute; inset: 0; background: linear-gradient(#0c1c2560, transparent 24%, transparent 65%, #0a1a19a6), linear-gradient(90deg, #10211e38, transparent 50%); }
+.fishing-water { position: absolute; left: 80%; top: 62%; width: 9%; height: 6%; }
+.float { position: absolute; width: 5px; height: 20px; left: 50%; top: 23%; border-radius: 3px; background: linear-gradient(#d4a484 50%, #e9e1c5 50%); box-shadow: 0 3px 5px #18352c55; animation: float-bob 5s ease-in-out infinite; }
+.float img { height: 100%; width: 100%; object-fit: contain; }
+.ripple { position: absolute; inset: 30% 20%; border: 1px solid #dce8da5c; border-radius: 50%; animation: ripple-expand 6s ease-out infinite; }
+.ripple.second { animation-delay: 3s; }
+.splash { position: absolute; inset: 15% 30%; border-top: 2px solid #edf4e099; border-radius: 50%; opacity: 0; }
+[data-bite="true"] .float { animation: float-bite 1.6s ease-in-out infinite; }
+[data-bite="true"] .ripple { animation-duration: 2s; }
+[data-bite="true"] .splash { animation: splash-soft 2s ease-out infinite; }
+@media (max-width: 680px) {
+  .background img { object-position: 65% center; }
+  .scene[data-mode="menu"], .scene:has(#setup-panel:not([hidden])) { min-height: max(1000px, 100dvh); }
+  .character { left: 66%; top: calc(100% - 80px); width: min(62%, 260px); }
+  [data-mode="menu"] .character { left: 64%; top: calc(100% - 80px); width: min(130%, 560px); }
+  [data-mode="work"] .character { left: 64%; top: 72%; width: min(130%, 560px); }
+  [data-mode="fishing"] .character { left: 66%; top: 78%; width: min(62%, 260px); }
+  .scene:has(#setup-panel:not([hidden])) .character { top: calc(100% - 80px); }
+  [data-mode="rest"] .character { left: 52%; top: 78%; width: min(110%, 460px); }
+  .scene[data-mode="rest"]:has(#rest-panel:not([hidden])) .character { left: 52%; top: 80%; width: min(120%, 500px); }
+  .fishing-water { left: 79%; top: 63%; }
+}

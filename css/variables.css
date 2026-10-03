@@ -1,0 +1,15 @@
+:root {
+  color-scheme: dark;
+  --ink: #f3f1e8;
+  --muted: #c6cbc1;
+  --subtle: #a0ac9e;
+  --accent: #b9c99d;
+  --accent-dark: #2b3c2c;
+  --glass: rgba(25, 38, 32, .71);
+  --border: rgba(238, 243, 227, .19);
+  --radius: 24px;
+  --transition: 350ms;
+  --character-transition: 600ms;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}

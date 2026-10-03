@@ -1,0 +1,18 @@
+html, body { min-height: 100%; }
+body { background: #101913; color: var(--ink); font-family: var(--sans); display: grid; min-height: 100dvh; place-items: center; overflow-x: hidden; }
+.icon-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.scene { position: relative; width: min(100vw, calc(100dvh * 16 / 9)); aspect-ratio: 16 / 9; overflow: clip; isolation: isolate; background: linear-gradient(#8bafa9 0 35%, #334f3c 35% 47%, #608f91 47% 76%, #3c5133 76%); container-type: inline-size; box-shadow: 0 0 120px #0008; }
+.scene-ui { position: absolute; inset: 0; z-index: 10; padding: 3.15% 4%; pointer-events: none; }
+.topbar, .panel, .mode-controls, .character-dialog { pointer-events: auto; }
+.glass { background: var(--glass); border: 1px solid var(--border); box-shadow: 0 18px 48px #06100d28, inset 0 1px 0 #ffffff05; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+:focus-visible { outline: 2px solid #e2edc8; outline-offset: 5px; }
+button { transition: background var(--transition), border-color var(--transition), transform var(--transition), opacity var(--transition); }
+button:active { transform: translateY(1px); }
+button:disabled { cursor: default; opacity: .38; transform: none; }
+.noscript { position: fixed; inset: auto 20px 20px; padding: 20px; background: #192620; border-radius: 16px; text-align: center; }
+@supports not (backdrop-filter: blur(1px)) { .glass { background: rgba(25, 38, 32, .94); } }
+@media (max-width: 680px) {
+  body { align-items: start; }
+  .scene { width: 100%; min-height: 760px; min-height: max(760px, 100dvh); aspect-ratio: auto; }
+  .scene-ui { padding: 24px 20px; }
+}
