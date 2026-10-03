@@ -1,0 +1,124 @@
+[
+  {
+    "state": "menu-idle",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-e56aa09e-df65-49c0-98c9-b0795fc164d5.png",
+    "top": 0.016,
+    "feet": 0.956,
+    "x": 0.493
+  },
+  {
+    "state": "menu-choice",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-e33e9371-d66d-4f6c-a457-26858eb11c7e.png",
+    "top": 0.014,
+    "feet": 0.958,
+    "x": 0.493
+  },
+  {
+    "state": "fishing-ready",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-ac31af4c-2d84-406b-a47e-0fc0d2247c07.png",
+    "top": 0.034,
+    "feet": 0.963,
+    "x": 0.394
+  },
+  {
+    "state": "fishing-cast",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-29af2f47-cb28-42e9-8a8f-9eb5c7884be3.png",
+    "top": 0.093,
+    "feet": 0.963,
+    "x": 0.576
+  },
+  {
+    "state": "fishing-wait",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-2bb630cf-29ba-43d4-81b3-2d7842c8dfa9.png",
+    "top": 0.026,
+    "feet": 0.958,
+    "x": 0.332
+  },
+  {
+    "state": "fishing-bite",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-a4ecc877-54f6-485b-99a6-43260b83fd0c.png",
+    "top": 0.043,
+    "feet": 0.943,
+    "x": 0.318
+  },
+  {
+    "state": "fishing-pull",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-646a5c1f-5642-4d2d-9df7-a1a7d6182569.png",
+    "top": 0.06,
+    "feet": 0.94,
+    "x": 0.32
+  },
+  {
+    "state": "fishing-catch",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-d43f9c1f-7162-4ee8-810e-5dcc3dd868ff.png",
+    "top": 0.014,
+    "feet": 0.966,
+    "x": 0.52
+  },
+  {
+    "state": "fishing-missed",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-5fd07abc-fe0b-4546-91cc-baf8fcb1400c.png",
+    "top": 0.023,
+    "feet": 0.958,
+    "x": 0.35
+  },
+  {
+    "state": "work-chop-01",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-3689376e-95de-4404-be16-ec5043c66cae.png",
+    "top": 0.135,
+    "feet": 0.944,
+    "x": 0.436
+  },
+  {
+    "state": "work-carry",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-bf153273-d141-4d51-94b1-11fa46bdf0b3.png",
+    "top": 0.012,
+    "feet": 0.954,
+    "x": 0.515
+  },
+  {
+    "state": "work-chop-02",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-b46ef4c2-1eb5-46cd-8ffd-940c8b090a07.png",
+    "top": 0.04,
+    "feet": 0.944,
+    "x": 0.395,
+    "scaleFrom": "work-chop-01",
+    "scaleMultiplier": 0.77
+  },
+  {
+    "state": "work-stack",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-e547f0a1-2f7d-4e9a-b6a3-45d7e62c28f0.png",
+    "top": 0.01,
+    "feet": 0.954,
+    "x": 0.35,
+    "scaleFrom": "menu-idle",
+    "scaleMultiplier": 0.77
+  },
+  {
+    "state": "work-break",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-159a436c-0095-4358-b4e7-c33e22694498.png",
+    "top": 0.015,
+    "feet": 0.962,
+    "x": 0.533
+  },
+  {
+    "state": "rest-lie",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-b45d4991-e776-4d62-9f13-43bf2919af33.png"
+  },
+  {
+    "state": "rest-hands-behind-head",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-91547b67-6734-4f68-9edb-ed1ce128ca68.png"
+  },
+  {
+    "state": "rest-looking-sky",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-0a0fb926-bd81-4ee9-aee2-f101e7f11650.png"
+  },
+  {
+    "state": "rest-eyes-closed",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-cfb8a430-22d2-4431-9a28-7a83ab334084.png"
+  },
+  {
+    "state": "rest-elbows",
+    "source": "C:\\Users\\st1mp\\.codex\\generated_images\\01a0f810-1bae-7c70-882b-57ba6652bf65\\exec-43d792b9-5f56-4c06-afbb-777a9e5a6728.png"
+  }
+]

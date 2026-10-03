@@ -1,0 +1,306 @@
+[
+  {
+    "state": "menu-idle",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      805,
+      552,
+      1289,
+      1895
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 1003359,
+    "webpBytes": 172528
+  },
+  {
+    "state": "menu-choice",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      717,
+      549,
+      1287,
+      1899
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 977266,
+    "webpBytes": 168198
+  },
+  {
+    "state": "fishing-ready",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      699,
+      546,
+      1859,
+      1902
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 1074254,
+    "webpBytes": 191038
+  },
+  {
+    "state": "fishing-cast",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      242,
+      438,
+      1356,
+      1902
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 1132058,
+    "webpBytes": 208014
+  },
+  {
+    "state": "fishing-wait",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      693,
+      552,
+      1917,
+      1901
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 1080511,
+    "webpBytes": 186688
+  },
+  {
+    "state": "fishing-bite",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      676,
+      548,
+      1996,
+      1902
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 1142198,
+    "webpBytes": 198114
+  },
+  {
+    "state": "fishing-pull",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      646,
+      551,
+      2023,
+      1901
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 1175867,
+    "webpBytes": 203880
+  },
+  {
+    "state": "fishing-catch",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      742,
+      548,
+      1259,
+      1899
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 997065,
+    "webpBytes": 167982
+  },
+  {
+    "state": "fishing-missed",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      682,
+      550,
+      1882,
+      1900
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 1070915,
+    "webpBytes": 183906
+  },
+  {
+    "state": "work-chop-01",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      735,
+      330,
+      1707,
+      1962
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 1565285,
+    "webpBytes": 280010
+  },
+  {
+    "state": "work-carry",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      764,
+      549,
+      1344,
+      1899
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 985875,
+    "webpBytes": 168724
+  },
+  {
+    "state": "work-chop-02",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      750,
+      733,
+      1697,
+      1940
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 1283207,
+    "webpBytes": 240474
+  },
+  {
+    "state": "work-stack",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      795,
+      847,
+      1718,
+      1912
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 1303786,
+    "webpBytes": 284870
+  },
+  {
+    "state": "work-break",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      717,
+      547,
+      1315,
+      1899
+    ],
+    "anchor": "bottom-center",
+    "pngBytes": 1073692,
+    "webpBytes": 180726
+  },
+  {
+    "state": "rest-lie",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      364,
+      820,
+      1684,
+      1229
+    ],
+    "anchor": "center",
+    "pngBytes": 930173,
+    "webpBytes": 194476
+  },
+  {
+    "state": "rest-hands-behind-head",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      364,
+      769,
+      1684,
+      1279
+    ],
+    "anchor": "center",
+    "pngBytes": 888204,
+    "webpBytes": 162574
+  },
+  {
+    "state": "rest-looking-sky",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      364,
+      812,
+      1684,
+      1236
+    ],
+    "anchor": "center",
+    "pngBytes": 894743,
+    "webpBytes": 155036
+  },
+  {
+    "state": "rest-eyes-closed",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      364,
+      811,
+      1684,
+      1237
+    ],
+    "anchor": "center",
+    "pngBytes": 860856,
+    "webpBytes": 149286
+  },
+  {
+    "state": "rest-elbows",
+    "size": [
+      2048,
+      2048
+    ],
+    "bounds": [
+      364,
+      666,
+      1684,
+      1382
+    ],
+    "anchor": "center",
+    "pngBytes": 1051425,
+    "webpBytes": 173912
+  }
+]
